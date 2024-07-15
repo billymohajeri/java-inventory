@@ -24,4 +24,16 @@ public class Item {
     this.quantity = quantity;
     this.createdDate = createdDate;
   }
+
+  public String getNAME() {
+    return NAME;
+  }
+
+  public int getQuantity() {
+    return quantity;
+  }
+
+  public Date getCreatedDate() {
+    return createdDate;
+  }
 }
