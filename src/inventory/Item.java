@@ -7,22 +7,13 @@ public class Item {
   private int quantity;
   private Date createdDate;
 
-  Item(String name, int quantity) {
-    this.name = name;
-    if (quantity < 0) {
-      throw new IllegalArgumentException("Amount of each item cannot be negative");
-    }
-    this.quantity = quantity;
-    this.createdDate = new Date();
-  }
-
   Item(String name, int quantity, Date createdDate) {
     this.name = name;
     if (quantity < 0) {
       throw new IllegalArgumentException("Amount of each item cannot be negative");
     }
     this.quantity = quantity;
-    this.createdDate = createdDate;
+    this.createdDate = createdDate == null ? new Date() : createdDate;
   }
 
   public String getNAME() {
