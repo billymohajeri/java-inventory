@@ -40,6 +40,14 @@ public class Store {
   }
 
   public boolean addItem(Item newItem) {
+    int sum = 0;
+    for (Item item : items) {
+      sum += item.getQuantity();
+    }
+    System.out.println("sum: " + sum);
+    if (sum + newItem.getQuantity() > maximumCapacity) {
+      return false;
+    }
     if (items.contains(newItem)) {
       return false;
     }
