@@ -17,10 +17,40 @@ public class Store {
   }
 
   public Map<String, Item> getItemsMap() {
-    Map<String, Item> itemsMap = new HashMap<>();
+    Map<String, Item> itemsNameMap = new HashMap<>();
     for (Item item : items) {
-      itemsMap.put(item.getName(), item);
+      itemsNameMap.put(item.getName(), item);
     }
-    return itemsMap;
+    return itemsNameMap;
+  }
+
+  public Map<String, Integer> getItemQuantities() {
+    Map<String, Integer> itemsQuantityMap = new HashMap<>();
+    for (Item item : items) {
+      itemsQuantityMap.put(item.getName(), item.getQuantity());
+    }
+    return itemsQuantityMap;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
