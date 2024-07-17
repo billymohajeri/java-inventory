@@ -36,5 +36,8 @@ public class Main {
     System.out.println(myStore.getCurrentVolume());
 
 
+    System.out.println(myStore.findItemByName("Umbrella"));
+
+    System.out.println(myStore.getItemsList());
   }
 }

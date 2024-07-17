@@ -6,7 +6,7 @@ public class Store {
   private List<Item> items;
 
   public Store() {
-    this.items = new ArrayList<>();
+    items = new ArrayList<>();
   }
 
   public List<Item> getItemsList() {
@@ -38,27 +38,29 @@ public class Store {
   }
 
   public boolean addItem(Item newItem) {
-    if (this.items.contains(newItem)) {
+    if (items.contains(newItem)) {
       return false;
     }
-    //    for (Item item : items) {
-    //      if (item.getName().equals(newItem.getName())) {
-    //        return false;
-    //      }
-    //    }
-    this.items.add(newItem);
+    items.add(newItem);
     return true;
   }
 
   public void deleteItem(Item delItem) {
-    this.items.remove(delItem);
+    items.remove(delItem);
   }
 
-  //Method getCurrentVolume to compute the total amount of items in the store.
   public int getCurrentVolume() {
-    return this.items.size();
+    return items.size();
   }
 
+  public Item findItemByName(String itemName) {
+    for (Item item : items) {
+      if (Objects.equals(itemName, item.getName())) {
+        return item;
+      }
+    }
+    return null;
+  }
 }
 
 
