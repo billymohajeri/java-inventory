@@ -4,9 +4,11 @@ import java.util.*;
 
 public class Store {
   private List<Item> items;
+  private int maximumCapacity;
 
-  public Store() {
+  public Store(int maximumCapacity) {
     items = new ArrayList<>();
+    this.maximumCapacity = maximumCapacity;
   }
 
   public List<Item> getItemsList() {
