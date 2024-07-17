@@ -54,6 +54,11 @@ public class Store {
     this.items.remove(delItem);
   }
 
+  //Method getCurrentVolume to compute the total amount of items in the store.
+  public int getCurrentVolume() {
+    return this.items.size();
+  }
+
 }
 
 

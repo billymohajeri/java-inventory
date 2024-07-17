@@ -29,7 +29,11 @@ public class Main {
     System.out.println(myStore.addItem(pen));
     myStore.deleteItem(pen);
     System.out.println(myStore.addItem(pen));
+    System.out.println(myStore.addItem(batteries));
+    System.out.println(myStore.addItem(umbrella));
     System.out.println(myStore.getItemsMap());
+
+    System.out.println(myStore.getCurrentVolume());
 
 
   }
