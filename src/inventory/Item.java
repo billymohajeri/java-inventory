@@ -13,7 +13,7 @@ public class Item {
       throw new IllegalArgumentException("Amount of each item cannot be negative");
     }
     this.quantity = quantity;
-    this.createdDate = createdDate;
+    this.createdDate = createdDate == null ? LocalDate.now() : createdDate;
   }
 
   public Item(String name, int quantity) {
