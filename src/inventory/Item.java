@@ -1,22 +1,26 @@
 package inventory;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Item {
   private final String name;
   private int quantity;
-  private Date createdDate;
+  private LocalDate createdDate;
 
-  Item(String name, int quantity, Date createdDate) {
+  public Item(String name, int quantity, LocalDate createdDate) {
     this.name = name;
     if (quantity < 0) {
       throw new IllegalArgumentException("Amount of each item cannot be negative");
     }
     this.quantity = quantity;
-    this.createdDate = createdDate == null ? new Date() : createdDate;
+    this.createdDate = createdDate;
   }
 
-  public String getNAME() {
+  public Item(String name, int quantity) {
+    this(name, quantity, LocalDate.now());
+  }
+
+  public String getName() {
     return name;
   }
 
@@ -24,7 +28,7 @@ public class Item {
     return quantity;
   }
 
-  public Date getCreatedDate() {
+  public LocalDate getCreatedDate() {
     return createdDate;
   }
 }
