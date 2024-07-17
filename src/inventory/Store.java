@@ -1,9 +1,6 @@
 package inventory;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Store {
   private List<Item> items;
@@ -30,6 +27,15 @@ public class Store {
       itemsQuantityMap.put(item.getName(), item.getQuantity());
     }
     return itemsQuantityMap;
+  }
+
+
+  public Set<String> getUniqueItemNames() {
+    Set<String> uniqueItemNames = new HashSet<>();
+    for (Item item : items) {
+      uniqueItemNames.add(item.getName());
+    }
+    return uniqueItemNames;
   }
 }
 
