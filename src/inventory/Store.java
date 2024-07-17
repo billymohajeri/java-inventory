@@ -36,18 +36,23 @@ public class Store {
     }
     return uniqueItemNames;
   }
-//   Methods to add/delete one item to the collection. Do not allow adding items with the same name to the store.
 
   public boolean addItem(Item newItem) {
-    for (Item item : items) {
-      if (item.getName().equals(newItem.getName())) {
-        return false;
-      }
+    if (this.items.contains(newItem)) {
+      return false;
     }
+    //    for (Item item : items) {
+    //      if (item.getName().equals(newItem.getName())) {
+    //        return false;
+    //      }
+    //    }
     this.items.add(newItem);
     return true;
   }
 
+  public void deleteItem(Item delItem) {
+    this.items.remove(delItem);
+  }
 
 }
 

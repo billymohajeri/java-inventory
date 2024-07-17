@@ -1,4 +1,5 @@
 import inventory.Item;
+import inventory.Store;
 
 import java.time.LocalDate;
 
@@ -22,7 +23,14 @@ public class Main {
     Item umbrella = new Item("Umbrella", 5);
     Item sunscreen = new Item("Sunscreen", 8);
 
+    Store myStore = new Store();
+    System.out.println(myStore.addItem(pen));
+    System.out.println(myStore.addItem(sunscreen));
+    System.out.println(myStore.addItem(pen));
+    myStore.deleteItem(pen);
+    System.out.println(myStore.addItem(pen));
+    System.out.println(myStore.getItemsMap());
 
-    System.out.println(sunscreen.getCreatedDate());
+
   }
 }
