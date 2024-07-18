@@ -116,14 +116,13 @@ public class Store {
   }
 
   public List<Item> filterItemsByQuantity(int minQuantity, int maxQuantity) {
-    List filteredItems = items.stream()
+    return items.stream()
             .filter(item -> item.getQuantity() > minQuantity && item.getQuantity() < maxQuantity).toList();
-    return filteredItems;
   }
 
   public List<Item> sortItemsByName() {
-    List sortedItems = items.stream().sorted(Comparator.comparing(Item::getName)).toList();
-    return sortedItems;
+    return items.stream()
+            .sorted(Comparator.comparing(Item::getName)).toList();
   }
 
   public List<Item> sortItemsByDate(boolean ascending) {
@@ -131,13 +130,19 @@ public class Store {
     if (!ascending) {
       comparator = comparator.reversed();
     }
-    List sortedItems = items.stream().sorted(comparator).toList();
-    return sortedItems;
+    return items.stream()
+            .sorted(comparator).toList();
   }
 
   public List<Item> getItemsCreatedAfter(LocalDate date) {
-    List itemsCreatedAfter = items.stream().filter(item -> item.getCreatedDate().isAfter(date)).toList();
-    return itemsCreatedAfter;
+    return items.stream()
+            .filter(item -> item.getCreatedDate().isAfter(date)).toList();
+  }
+
+  public Map<String, Long> countItemsByName(String name) {
+    long count = items.stream()
+            .filter(item -> item.getName().equals(name)).count();
+    return Map.of(name, count);
   }
 }
 
