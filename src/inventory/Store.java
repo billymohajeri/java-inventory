@@ -110,8 +110,14 @@ public class Store {
       currentAmount += historyItem.getQuantity();
       history += historyItem.getCreatedDate() + ": " + historyItem.getQuantity() + "\n";
     }
-    System.out.println("\nHistory for " + item.getName() + ": Current amount = " + currentAmount);
+    System.out.println("\nHistory for " + item.getName() + ": (Current amount = " + currentAmount + ")");
     System.out.println(history);
+  }
+
+  public List<Item> filterItemsByQuantity(int minQuantity, int maxQuantity) {
+    List filteredItems = items.stream()
+            .filter(item -> item.getQuantity() > minQuantity && item.getQuantity() < maxQuantity).toList();
+    return filteredItems;
   }
 }
 

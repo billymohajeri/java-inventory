@@ -24,6 +24,7 @@ public class Main {
     Item sunscreen2 = new Item("Sunscreen", -7);
 
     Store myStore = new Store(30);
+
     System.out.println(myStore.addItem(pen));
     System.out.println(myStore.addItem(sunscreen));
     System.out.println(myStore.addItem(sunscreen2));
@@ -34,19 +35,22 @@ public class Main {
     System.out.println(myStore.addItem(pen));
     System.out.println(myStore.addItem(batteries));
     System.out.println(myStore.addItem(umbrella));
-    System.out.println(myStore.getItemsMap());
+
+    System.out.println("to str" + myStore.getItemsMap().toString());
 
     System.out.println(myStore.getCurrentVolume());
 
 
     System.out.println(myStore.findItemByName("Umbrella"));
 
-    System.out.println(myStore.getItemsList());
+    System.out.println("getItemsList: " + myStore.getItemsList());
     myStore.displayItemHistory(sunscreen);
     myStore.displayItemHistory(umbrella);
     myStore.displayItemHistory(pen);
 
     myStore.deleteItem(pen);
     myStore.displayItemHistory(pen);
+
+    System.out.println(myStore.filterItemsByQuantity(5, 58));
   }
 }

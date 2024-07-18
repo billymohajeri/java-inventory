@@ -25,6 +25,15 @@ public class Item {
     return quantity;
   }
 
+  @Override
+  public String toString() {
+    return "Item{" +
+            "name='" + name + '\'' +
+            ", quantity=" + quantity +
+            ", createdDate=" + createdDate +
+            '}';
+  }
+
   public LocalDate getCreatedDate() {
     return createdDate;
   }
