@@ -1,5 +1,6 @@
 package inventory;
 
+import java.time.LocalDate;
 import java.util.*;
 
 public class Store {
@@ -122,7 +123,6 @@ public class Store {
 
   public List<Item> sortItemsByName() {
     List sortedItems = items.stream().sorted(Comparator.comparing(Item::getName)).toList();
-    System.out.println("sortedItems: " + sortedItems);
     return sortedItems;
   }
 
@@ -132,13 +132,13 @@ public class Store {
       comparator = comparator.reversed();
     }
     List sortedItems = items.stream().sorted(comparator).toList();
-    System.out.println("sortedItems by date: " + sortedItems);
     return sortedItems;
-
-
   }
 
-
+  public List<Item> getItemsCreatedAfter(LocalDate date) {
+    List itemsCreatedAfter = items.stream().filter(item -> item.getCreatedDate().isAfter(date)).toList();
+    return itemsCreatedAfter;
+  }
 }
 
 

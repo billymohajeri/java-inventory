@@ -54,7 +54,14 @@ public class Main {
 
     System.out.println(myStore.filterItemsByQuantity(5, 58));
     myStore.addItem(chipsBag);
-    myStore.sortItemsByName();
-    myStore.sortItemsByDate(false);
+
+
+    System.out.println("\nSorted items by name: " + myStore.sortItemsByName());
+
+    System.out.println("\nSorted items by date: " + myStore.sortItemsByDate(false));
+
+    LocalDate newDate = LocalDate.of(2023, 10, 1);
+    System.out.println("\nItems created after " + newDate + ": " +
+            myStore.getItemsCreatedAfter(newDate));
   }
 }
