@@ -6,7 +6,6 @@ import java.time.LocalDate;
 public class Main {
   public static void main(String[] args) {
 
-    // items example - You do not need to follow exactly the same
     Item waterBottle = new Item("Water Bottle", 10, LocalDate.of(2023, 1, 1));
     Item chocolateBar = new Item("Chocolate Bar", 15, LocalDate.of(2023, 2, 1));
     Item notebook = new Item("Notebook", 5, LocalDate.of(2023, 3, 1));
@@ -22,11 +21,15 @@ public class Main {
     Item batteries = new Item("Batteries", 10);
     Item umbrella = new Item("Umbrella", 5);
     Item sunscreen = new Item("Sunscreen", 8);
+    Item sunscreen2 = new Item("Sunscreen", -7);
 
-    Store myStore = new Store(20);
+    Store myStore = new Store(30);
     System.out.println(myStore.addItem(pen));
     System.out.println(myStore.addItem(sunscreen));
+    System.out.println(myStore.addItem(sunscreen2));
     System.out.println(myStore.addItem(pen));
+    myStore.deleteItem(pen);
+    myStore.deleteItem(pen);
     myStore.deleteItem(pen);
     System.out.println(myStore.addItem(pen));
     System.out.println(myStore.addItem(batteries));
@@ -39,5 +42,11 @@ public class Main {
     System.out.println(myStore.findItemByName("Umbrella"));
 
     System.out.println(myStore.getItemsList());
+    myStore.displayItemHistory(sunscreen);
+    myStore.displayItemHistory(umbrella);
+    myStore.displayItemHistory(pen);
+
+    myStore.deleteItem(pen);
+    myStore.displayItemHistory(pen);
   }
 }
