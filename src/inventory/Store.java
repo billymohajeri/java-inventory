@@ -119,6 +119,12 @@ public class Store {
             .filter(item -> item.getQuantity() > minQuantity && item.getQuantity() < maxQuantity).toList();
     return filteredItems;
   }
+
+  public List<Item> sortItemsByName() {
+    List sortedItems = items.stream().sorted(Comparator.comparing(item -> item.getName())).toList();
+    System.out.println("sortedItems: " + sortedItems);
+    return sortedItems;
+  }
 }
 
 

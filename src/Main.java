@@ -23,7 +23,7 @@ public class Main {
     Item sunscreen = new Item("Sunscreen", 8);
     Item sunscreen2 = new Item("Sunscreen", -7);
 
-    Store myStore = new Store(30);
+    Store myStore = new Store(300);
 
     System.out.println(myStore.addItem(pen));
     System.out.println(myStore.addItem(sunscreen));
@@ -32,6 +32,7 @@ public class Main {
     myStore.deleteItem(pen);
     myStore.deleteItem(pen);
     myStore.deleteItem(pen);
+    myStore.addItem(coffee);
     System.out.println(myStore.addItem(pen));
     System.out.println(myStore.addItem(batteries));
     System.out.println(myStore.addItem(umbrella));
@@ -52,5 +53,7 @@ public class Main {
     myStore.displayItemHistory(pen);
 
     System.out.println(myStore.filterItemsByQuantity(5, 58));
+    myStore.addItem(chipsBag);
+    myStore.sortItemsByName();
   }
 }
