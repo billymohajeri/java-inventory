@@ -55,5 +55,6 @@ public class Main {
     System.out.println(myStore.filterItemsByQuantity(5, 58));
     myStore.addItem(chipsBag);
     myStore.sortItemsByName();
+    myStore.sortItemsByDate(false);
   }
 }

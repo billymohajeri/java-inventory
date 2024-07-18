@@ -121,10 +121,24 @@ public class Store {
   }
 
   public List<Item> sortItemsByName() {
-    List sortedItems = items.stream().sorted(Comparator.comparing(item -> item.getName())).toList();
+    List sortedItems = items.stream().sorted(Comparator.comparing(Item::getName)).toList();
     System.out.println("sortedItems: " + sortedItems);
     return sortedItems;
   }
+
+  public List<Item> sortItemsByDate(boolean ascending) {
+    Comparator<Item> comparator = Comparator.comparing(Item::getCreatedDate);
+    if (!ascending) {
+      comparator = comparator.reversed();
+    }
+    List sortedItems = items.stream().sorted(comparator).toList();
+    System.out.println("sortedItems by date: " + sortedItems);
+    return sortedItems;
+
+
+  }
+
+
 }
 
 
