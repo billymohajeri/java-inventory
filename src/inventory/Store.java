@@ -53,7 +53,8 @@ public class Store {
     }
 
     System.out.println("sum: " + totalSum);
-    if (totalSum + newItem.getQuantity() > maximumCapacity) {
+    boolean isOverCapacity = totalSum + newItem.getQuantity() > maximumCapacity;
+    if (isOverCapacity) {
       System.out.println("Amount of each item cannot be more than " + maximumCapacity);
       return false;
     }
