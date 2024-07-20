@@ -58,7 +58,8 @@ public class Store {
       System.out.println("Amount of each item cannot be more than " + maximumCapacity);
       return false;
     }
-    if (itemSum + newItem.getQuantity() < 0) {
+    boolean isSumNegative = itemSum + newItem.getQuantity() < 0;
+    if (isSumNegative) {
       System.out.println("Amount of each item cannot be negative");
       return false;
     }
