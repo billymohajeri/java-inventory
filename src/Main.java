@@ -21,13 +21,11 @@ public class Main {
     Item batteries = new Item("Batteries", 10);
     Item umbrella = new Item("Umbrella", 5);
     Item sunscreen = new Item("Sunscreen", 8);
-    Item sunscreen2 = new Item("Sunscreen", -7);
 
     Store myStore = new Store(300);
 
     System.out.println(myStore.addItem(pen));
     System.out.println(myStore.addItem(sunscreen));
-    System.out.println(myStore.addItem(sunscreen2));
     System.out.println(myStore.addItem(pen));
     myStore.deleteItem(pen);
     myStore.deleteItem(pen);
@@ -72,5 +70,16 @@ public class Main {
     String searchString = "e";
     System.out.println("\nList of item names that contain " + searchString + ": " +
             myStore.findItemNamesContaining(searchString));
+
+    System.out.println("\nGroup items into ranges of quantities: ");
+
+
+    myStore.groupItemsByQuantityRange().
+            forEach((range, items) -> {
+              System.out.println("\nRange " + range + ":");
+              items.forEach(item -> System.out.println("  " + item));
+            });
+
+
   }
 }

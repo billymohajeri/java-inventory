@@ -2,6 +2,7 @@ package inventory;
 
 import java.time.LocalDate;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Store {
   private List<Item> items;
@@ -157,6 +158,25 @@ public class Store {
     List<String> foundItems = items.stream()
             .map(Item::getName).filter(name -> name.contains(searchString)).toList();
     return foundItems;
+  }
+
+  //  Implement a method groupItemsByQuantityRange that groups items into ranges of quantities (e.g., 1-10, 11-20, etc.)
+//  and returns a map where keys are the ranges and values are lists of items within those ranges.
+  public Map<String, List<Item>> groupItemsByQuantityRange() {
+    Map<String, List<Item>> groupedItems = items.stream()
+            .collect(Collectors.groupingBy(item -> getQuantityRange(item.getQuantity())));
+    return groupedItems;
+  }
+
+  private String getQuantityRange(int quantity) {
+    return switch (quantity / 5) {
+      case 0 -> "1-4: a little!";
+      case 1 -> "5-9: more!";
+      case 2 -> "10-14: a lot!";
+      case 3 -> "15-19: a great deal!";
+      case 4 -> "20-24: abundant!";
+      default -> "+24: excessive!";
+    };
   }
 }
 
