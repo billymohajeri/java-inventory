@@ -66,5 +66,7 @@ public class Main {
     System.out.println("\nCount items by name: " + myStore.countItemsByName(pen.getName()));
     System.out.println("\nCount items by name: " + myStore.countItemsByName(sunscreen.getName()));
     System.out.println("\nCount items by name: " + myStore.countItemsByName(umbrella.getName()));
+
+    System.out.println("\nSum of quantities of all items in the store: " + myStore.getTotalQuantity());
   }
 }

@@ -146,6 +146,12 @@ public class Store {
             .filter(item -> item.getName().equals(name)).count();
     return Map.of(name, count);
   }
+
+  public int getTotalQuantity() {
+    int totalQuantity = items.stream()
+            .mapToInt(Item::getQuantity).sum();
+    return totalQuantity;
+  }
 }
 
 
