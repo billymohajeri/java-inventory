@@ -152,6 +152,12 @@ public class Store {
             .mapToInt(Item::getQuantity).sum();
     return totalQuantity;
   }
+
+  public List<String> findItemNamesContaining(String searchString) {
+    List<String> foundItems = items.stream()
+            .map(Item::getName).filter(name -> name.contains(searchString)).toList();
+    return foundItems;
+  }
 }
 
 

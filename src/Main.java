@@ -68,5 +68,9 @@ public class Main {
     System.out.println("\nCount items by name: " + myStore.countItemsByName(umbrella.getName()));
 
     System.out.println("\nSum of quantities of all items in the store: " + myStore.getTotalQuantity());
+
+    String searchString = "e";
+    System.out.println("\nList of item names that contain " + searchString + ": " +
+            myStore.findItemNamesContaining(searchString));
   }
 }
