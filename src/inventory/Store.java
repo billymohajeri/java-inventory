@@ -100,7 +100,6 @@ public class Store {
     if (isDeleted) {
       Item delItem = new Item(newItem.getName(), (-1 * newItem.getQuantity()), newItem.getCreatedDate());
       itemHistory.get(delItem.getName()).add(delItem);
-
     } else {
       itemHistory.get(newItem.getName()).add(newItem);
     }
@@ -182,6 +181,33 @@ public class Store {
             .mapToInt(Item::getQuantity).average().getAsDouble();
     return averageQuantity;
   }
+
+
+  private Stack<Item> getItemHistory(String itemName) {
+    return itemHistory.getOrDefault(itemName, new Stack<>());
+  }
+
+  public List<Item> getMostFrequentModifications(int n) {
+    Map<String, Integer> modificationCounts = new HashMap<>();
+    for (Map.Entry<String, Stack<Item>> entry : itemHistory.entrySet()) {
+      modificationCounts.put(entry.getKey(), entry.getValue().size());
+    }
+
+    List<Map.Entry<String, Integer>> sortedEntries = modificationCounts.entrySet().stream()
+            .sorted((e1, e2) -> e2.getValue().compareTo(e1.getValue())).toList();
+
+    List<Item> mostFrequentItems = new ArrayList<>();
+    for (int i = 0; i < n && i < sortedEntries.size(); i++) {
+      String itemName = sortedEntries.get(i).getKey();
+      Stack<Item> historyStack = itemHistory.get(itemName);
+      if (!historyStack.isEmpty()) {
+        mostFrequentItems.add(historyStack.peek());
+      }
+    }
+    return mostFrequentItems;
+  }
+
+
 }
 
 

@@ -25,7 +25,12 @@ public class Main {
     Store myStore = new Store(300);
 
     System.out.println(myStore.addItem(pen));
-    System.out.println(myStore.addItem(sunscreen));
+    myStore.addItem(sunscreen);
+    myStore.addItem(sunscreen);
+    myStore.addItem(sunscreen);
+    myStore.addItem(sunscreen);
+    myStore.addItem(sunscreen);
+    myStore.addItem(sunscreen);
     System.out.println(myStore.addItem(pen));
     myStore.deleteItem(pen);
     myStore.deleteItem(pen);
@@ -79,5 +84,9 @@ public class Main {
             });
 
     System.out.println("\nAverage quantity of all items in the store: " + myStore.getAverageQuantity());
+
+
+    System.out.println("\nItems with the most modifications to their quantities: " +
+            myStore.getMostFrequentModifications(3));
   }
 }
