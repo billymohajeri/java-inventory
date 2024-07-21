@@ -176,6 +176,12 @@ public class Store {
       default -> "+24: excessive!";
     };
   }
+
+  public double getAverageQuantity() {
+    double averageQuantity = items.stream()
+            .mapToInt(Item::getQuantity).average().getAsDouble();
+    return averageQuantity;
+  }
 }
 
 

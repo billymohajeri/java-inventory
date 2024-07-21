@@ -72,14 +72,12 @@ public class Main {
             myStore.findItemNamesContaining(searchString));
 
     System.out.println("\nGroup items into ranges of quantities: ");
-
-
     myStore.groupItemsByQuantityRange().
             forEach((range, items) -> {
               System.out.println("\nRange " + range + ":");
               items.forEach(item -> System.out.println("  " + item));
             });
 
-
+    System.out.println("\nAverage quantity of all items in the store: " + myStore.getAverageQuantity());
   }
 }
