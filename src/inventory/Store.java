@@ -160,12 +160,10 @@ public class Store {
     return foundItems;
   }
 
-  //  Implement a method groupItemsByQuantityRange that groups items into ranges of quantities (e.g., 1-10, 11-20, etc.)
-//  and returns a map where keys are the ranges and values are lists of items within those ranges.
   public Map<String, List<Item>> groupItemsByQuantityRange() {
-    Map<String, List<Item>> groupedItems = items.stream()
+    Map<String, List<Item>> groupItems = items.stream()
             .collect(Collectors.groupingBy(item -> getQuantityRange(item.getQuantity())));
-    return groupedItems;
+    return groupItems;
   }
 
   private String getQuantityRange(int quantity) {
